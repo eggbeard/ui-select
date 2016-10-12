@@ -22,11 +22,17 @@ uis.directive('uiSelectChoices',
 
       // var repeat = RepeatParser.parse(attrs.repeat);
       var groupByExp = tAttrs.groupBy;
+      var addGroups = tAttrs.addGroups;
       var groupFilterExp = tAttrs.groupFilter;
 
       if (groupByExp) {
         var groups = tElement.querySelectorAll('.ui-select-choices-group');
         if (groups.length !== 1) throw uiSelectMinErr('rows', "Expected 1 .ui-select-choices-group but got '{0}'.", groups.length);
+        //Add click handler to the group
+        if(addGroups){
+          var groupLabels = tElement.querySelectorAll('.ui-select-choices-group-label');
+          groupLabels.attr('ng-click', '$select.headerClick($group,$select.skipFocusser,$event)');
+        }
         groups.attr('ng-repeat', RepeatParser.getGroupNgRepeatExpression());
       }
 
