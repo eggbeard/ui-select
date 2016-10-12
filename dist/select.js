@@ -1,7 +1,7 @@
 /*!
  * ui-select
  * http://github.com/angular-ui/ui-select
- * Version: 0.19.4 - 2016-10-12T13:28:03.239Z
+ * Version: 0.19.4 - 2016-10-12T14:31:49.057Z
  * License: MIT
  */
 
@@ -233,7 +233,7 @@ uis.directive('uiSelectChoices',
         var groups = tElement.querySelectorAll('.ui-select-choices-group');
         if (groups.length !== 1) throw uiSelectMinErr('rows', "Expected 1 .ui-select-choices-group but got '{0}'.", groups.length);
         //Add click handler to the group
-        if(addGroups){
+        if(typeof addGroups !== 'undefined'){
           var groupLabels = tElement.querySelectorAll('.ui-select-choices-group-label');
           groupLabels.attr('ng-click', '$select.headerClick($group,$select.skipFocusser,$event)');
         }
