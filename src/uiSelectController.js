@@ -440,6 +440,13 @@ uis.controller('uiSelectCtrl',
     }
   };
 
+  //Group select
+  ctrl.headerClick = function(group){
+    group.items.forEach(function(item){
+      ctrl.select(item,false);
+    });
+  };
+
   // Closes the dropdown
   ctrl.close = function(skipFocusser) {
     if (!ctrl.open) return;
